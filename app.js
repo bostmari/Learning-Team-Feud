@@ -3275,7 +3275,7 @@ $("answerInput").addEventListener(
     }
   }
 );
-
+$("showAnswersNow").onclick=scoreAndReveal;
 $("nextRound").onclick=nextRound;
 $("newGame").onclick=newGame;
 $("endGame").onclick=endGame;
