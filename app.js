@@ -2267,7 +2267,7 @@ function getCategories(){
 }
 
 function usedKey(){
-  return state.game ? "feud-used-"+state.game.id : "feud-used";
+  return "feud-used-all-games";
 }
 
 function loadUsed(){
@@ -2290,10 +2290,7 @@ function saveUsed(){
 }
 
 function clearUsed(){
-  state.used=new Set();
-  try{
-    localStorage.removeItem(usedKey());
-  }catch{}
+    loadUsed();
 }
 
 function pickUnused(category){
