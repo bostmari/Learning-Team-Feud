@@ -39,10 +39,22 @@
       <div><div class="muted">ROOM CODE</div><div id="roomCode" class="room-code"></div></div>
       <div><strong id="lobbyRole"></strong><div class="muted" id="connectionStatus">Connecting…</div></div>
     </div>
-    <div class="panel">
+        <div class="panel">
       <h2>Players Joined</h2>
       <div id="lobbyPlayers"></div>
-      <button id="startGame" class="gold hidden">Start Game</button>
+
+      <div id="hostSetup" class="hidden">
+        <label for="timerSelect">⏱️ Answer Time</label>
+        <select id="timerSelect">
+          <option value="15">15 seconds</option>
+          <option value="20">20 seconds</option>
+          <option value="25">25 seconds</option>
+          <option value="30">30 seconds</option>
+          <option value="35" selected>35 seconds</option>
+        </select>
+      </div>
+
+      <button id="startGame" class="gold hidden">🎮 Start Game</button>
       <p id="lobbyWait" class="muted">Waiting for the host to start…</p>
     </div>
   </section>
@@ -91,8 +103,13 @@
           <div id="revealPanel" class="hidden">
             <h3>📊 Answers</h3>
             <div id="revealedAnswers"></div>
-            <div id="feudBoard"></div>
-            <button id="nextRound" class="gold hidden">Next Round →</button>
+          <div id="feudBoard"></div>
+
+<div id="hostControls" class="hidden">
+  <button id="nextRound" class="gold">Next Round →</button>
+  <button id="newGame">🔄 New Game</button>
+  <button id="endGame">🏠 End Game</button>
+</div>
           </div>
         </div>
       </section>
