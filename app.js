@@ -117,5 +117,12 @@ async function renderReveal(ps,ans,q){
  $("nextRound").classList.toggle("hidden",state.role!=="host");
 }
 async function nextRound(){await sb.from("games").update({round:state.game.round+1,status:"choosing",question_index:null,deadline:null}).eq("id",state.game.id)}
-$("createGame").onclick=createGame;$("joinGame").onclick=joinGame;$("startGame").onclick=()=>sb.from("games").update({status:"choosing"}).eq("id",state.game.id);$("lockAnswer").onclick=submitAnswer;$("answerInput").addEventListener("keydown",e=>{if(e.key==="Enter")submitAnswer()});$("nextRound").onclick=nextRound;
+$("createGame").onclick=createGame;$("joinGame").onclick=joinGame;$("startGame").onclick=async()=>{
+  const {error}=await sb.from("games").update({status:"choosing"}).eq("id",state.game.id);
+  if(error){
+    alert("Could not start game: "+error.message);
+    return;
+  }
+  await refresh();
+};$("lockAnswer").onclick=submitAnswer;$("answerInput").addEventListener("keydown",e=>{if(e.key==="Enter")submitAnswer()});$("nextRound").onclick=nextRound;
 })();
