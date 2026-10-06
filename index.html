@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Learning Team Feud</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="wrap">
+  <header class="hero">
+    <div class="eyebrow">SLACK EDITION</div>
+    <h1>🎮 LEARNING TEAM FEUD</h1>
+    <p>Everyone plays for themselves. Answers stay hidden until time is up.</p>
+  </header>
+
+  <section id="home" class="panel">
+    <div class="home-grid">
+      <div>
+        <h2>🎤 Host a Game</h2>
+        <label>Host name</label>
+        <input id="hostName" placeholder="Marissa">
+        <button id="createGame" class="gold">Create Game</button>
+      </div>
+      <div>
+        <h2>👥 Join a Game</h2>
+        <label>Your name</label>
+        <input id="joinName" placeholder="Your name">
+        <label>Room code</label>
+        <input id="joinCode" maxlength="4" inputmode="numeric" placeholder="4827">
+        <button id="joinGame">Join Game</button>
+      </div>
+    </div>
+    <p id="homeMsg" class="msg"></p>
+  </section>
+
+  <section id="lobby" class="hidden">
+    <div class="panel topbar">
+      <div><div class="muted">ROOM CODE</div><div id="roomCode" class="room-code"></div></div>
+      <div><strong id="lobbyRole"></strong><div class="muted" id="connectionStatus">Connecting…</div></div>
+    </div>
+    <div class="panel">
+      <h2>Players Joined</h2>
+      <div id="lobbyPlayers"></div>
+      <button id="startGame" class="gold hidden">Start Game</button>
+      <p id="lobbyWait" class="muted">Waiting for the host to start…</p>
+    </div>
+  </section>
+
+  <section id="play" class="hidden">
+    <div class="panel topbar">
+      <div><strong id="playRoom"></strong><div id="playHost" class="muted"></div></div>
+      <div class="round-pill">Round <span id="roundNum">1</span> • <span id="roundMult">1×</span></div>
+    </div>
+
+    <div class="game-grid">
+      <section>
+        <div id="hostCategories" class="panel hidden">
+          <h2>Choose a Category</h2>
+          <div id="categoryGrid" class="categories"></div>
+        </div>
+
+        <div id="waitingQuestion" class="panel hidden">
+          <h2>Waiting for the host…</h2>
+          <p class="muted">The next question will appear here.</p>
+        </div>
+
+        <div id="questionPanel" class="panel hidden">
+          <div class="question-head"><strong id="questionCategory"></strong><span id="questionType" class="pill"></span></div>
+          <h2 id="questionText" class="question"></h2>
+
+          <div id="countdownWrap" class="timer-wrap hidden">
+            <div id="timer" class="timer">10</div>
+            <div class="muted">seconds</div>
+          </div>
+
+          <div id="answerEntry" class="hidden">
+            <label>Your answer</label>
+            <div class="answer-entry-row">
+              <input id="answerInput" autocomplete="off" placeholder="Type your answer…">
+              <button id="lockAnswer" class="gold">🔒 Lock In</button>
+            </div>
+            <p id="answerMsg" class="msg"></p>
+          </div>
+
+          <div id="hostLive" class="hidden">
+            <div class="submission-line"><strong id="submittedCount">0 of 0</strong> answers submitted</div>
+            <p class="muted">Answers remain hidden until the timer ends.</p>
+          </div>
+
+          <div id="revealPanel" class="hidden">
+            <h3>📊 Answers</h3>
+            <div id="revealedAnswers"></div>
+            <div id="feudBoard"></div>
+            <button id="nextRound" class="gold hidden">Next Round →</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel">
+        <h2>🏆 Leaderboard</h2>
+        <div id="leaderboard"></div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
