@@ -72,7 +72,7 @@ function showChoosing(){
  if(state.role==="host"){ $("categoryGrid").innerHTML=bank.map((x,i)=>'<button class="cat" data-cat="'+i+'">'+x.cat+'</button>').join("");document.querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>startQuestion(Number(b.dataset.cat)))}
 }
 async function startQuestion(i){
- const q=bank[i], deadline=new Date(Date.now()+10000).toISOString();
+ const q=bank[i], deadline=new Date(Date.now()+20000).toISOString();
  await sb.from("answers").delete().eq("game_id",state.game.id).eq("round",state.game.round);
  await sb.from("games").update({status:"answering",question_index:i,deadline}).eq("id",state.game.id);
 }
