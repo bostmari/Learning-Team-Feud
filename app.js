@@ -2607,7 +2607,7 @@ function renderLobby(ps){
 }
 
 function renderLeader(ps){
-  let a=[...ps].sort(
+let a=ps.filter(p=>!p.is_host).sort(
     (x,y)=>(y.score||0)-(x.score||0)
   );
 
@@ -2871,12 +2871,86 @@ async function submitAnswer(){
    ANSWER MATCHING
 ========================= */
 
+function editDistance(a,b){
+  const m=a.length, n=b.length;
+  const dp=Array.from({length:m+1},()=>Array(n+1).fill(0));
+
+  for(let i=0;i<=m;i++) dp[i][0]=i;
+  for(let j=0;j<=n;j++) dp[0][j]=j;
+
+  for(let i=1;i<=m;i++){
+    for(let j=1;j<=n;j++){
+      dp[i][j]=a[i-1]===b[j-1]
+        ? dp[i-1][j-1]
+        : 1+Math.min(
+            dp[i-1][j],
+            dp[i][j-1],
+            dp[i-1][j-1]
+          );
+    }
+  }
+
+  return dp[m][n];
+}
+
+function wordVariants(s){
+  s=norm(s);
+  const set=new Set([s]);
+
+  if(s.endsWith("s") && s.length>3)
+    set.add(s.slice(0,-1));
+
+  if(s.endsWith("es") && s.length>4)
+    set.add(s.slice(0,-2));
+
+  if(s.endsWith("ing") && s.length>5){
+    const base=s.slice(0,-3);
+    set.add(base);
+    set.add(base+"e");
+  }
+
+  if(s.endsWith("ed") && s.length>4){
+    const base=s.slice(0,-2);
+    set.add(base);
+    set.add(base+"e");
+  }
+
+  return [...set];
+}
+
+function closeEnough(a,b){
+  a=norm(a);
+  b=norm(b);
+
+  if(!a || !b) return false;
+
+  if(a===b) return true;
+
+  if(a.length>=4 && b.length>=4){
+    if(a.includes(b) || b.includes(a)) return true;
+  }
+
+  const av=wordVariants(a);
+  const bv=wordVariants(b);
+
+  if(av.some(x=>bv.includes(x))) return true;
+
+  const longest=Math.max(a.length,b.length);
+
+  let allowed=0;
+
+  if(longest>=5) allowed=1;
+  if(longest>=8) allowed=2;
+
+  return editDistance(a,b)<=allowed;
+}
+
 function matchAnswer(text,q){
   const n=norm(text);
 
   if(q.type==="trivia"){
     return q.correct.some(
-      x=>norm(x)===n
+      x=>closeEnough(n,x)
     ) ? 25 : 0;
   }
 
@@ -2884,17 +2958,8 @@ function matchAnswer(text,q){
 
   for(const row of q.answers){
     for(const alias of row[2]){
-      const a=norm(alias);
-
-      if(
-        n===a ||
-        n.includes(a) ||
-        a.includes(n)
-      ){
-        best=Math.max(
-          best,
-          row[1]
-        );
+      if(closeEnough(n,alias)){
+        best=Math.max(best,row[1]);
       }
     }
   }
