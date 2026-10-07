@@ -2567,7 +2567,10 @@ async function refresh(){
   $("roundMult").textContent=mult(g.round)+"×";
 
   renderLeader(ps||[]);
-
+if(g.status==="wagering"){
+    showWagering(ps||[]);
+    return;
+}
   if(g.status==="choosing"){
     showChoosing();
     return;
@@ -2580,8 +2583,45 @@ async function refresh(){
     await showQuestion(ps||[]);
   }
 }
+function showWagering(ps){
+    clearInterval(state.timer);
 
-/* =========================
+    $("questionPanel").classList.add("hidden");
+    $("waitingQuestion").classList.add("hidden");
+    $("hostCategories").classList.add("hidden");
+    $("hostControls").classList.add("hidden");
+
+    $("wagerPanel").classList.remove("hidden");
+
+    const playingPlayers=(ps||[]).filter(
+        p=>!p.is_host || p.host_plays
+    );
+
+    const me=playingPlayers.find(
+        p=>p.id===state.player.id
+    );
+
+    if(me){
+        $("wagerPlayer").classList.remove("hidden");
+        $("wagerScore").textContent=me.score||0;
+        $("wagerInput").max=me.score||0;
+    }else{
+        $("wagerPlayer").classList.add("hidden");
+    }
+
+    if(state.role==="host"){
+        $("wagerHost").classList.remove("hidden");
+        $("wagerCount").textContent="0 of "+playingPlayers.length;
+    }else{
+        $("wagerHost").classList.add("hidden");
+    }
+}
+
+  
+  
+  
+  
+  /* =========================
    PLAYER LIST / LEADERBOARD
 ========================= */
 
@@ -3172,7 +3212,42 @@ async function nextRound(){
   await refresh();
 }
 
-/* =========================
+async function startFinalRound(){
+    if(state.role!=="host") return;
+
+    const ok=confirm(
+        "Start the Wild Facts Final Round? Everyone will choose a wager before seeing the question."
+    );
+
+    if(!ok) return;
+
+    clearInterval(state.timer);
+
+    const {error}=await sb
+        .from("games")
+        .update({
+            status:"wagering",
+            question_index:null,
+            deadline:null
+        })
+        .eq("id",state.game.id);
+
+    if(error){
+        alert(
+            "Could not start Final Round: "+
+            error.message
+        );
+        return;
+    }
+
+    await refresh();
+}
+  
+  
+  
+  
+  
+  /* =========================
    NEW GAME
 ========================= */
 
@@ -3342,5 +3417,5 @@ $("showAnswersNow").onclick=scoreAndReveal;
 $("nextRound").onclick=nextRound;
 $("newGame").onclick=newGame;
 $("endGame").onclick=endGame;
-
+$("finalRound").onclick=startFinalRound;
 })();
