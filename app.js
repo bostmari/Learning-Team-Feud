@@ -2328,7 +2328,7 @@ async function createGame(){
   if(C.SUPABASE_URL.includes("PASTE_")) return;
 
   const host=$("hostName").value.trim();
-
+const hostPlayMode=$("hostPlayMode").value;
   if(!host){
     $("homeMsg").textContent="Enter your host name.";
     return;
