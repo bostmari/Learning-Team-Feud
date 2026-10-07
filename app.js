@@ -2234,6 +2234,131 @@ answers:[
    GAME HELPERS
 ========================= */
 
+const wildFacts=[
+  {
+    q:"Which planet has the shortest day in our solar system?",
+    correct:["Jupiter"]
+  },
+  {
+    q:"What is the only mammal capable of true sustained flight?",
+    correct:["Bat","Bats"]
+  },
+  {
+    q:"How many hearts does an octopus have?",
+    correct:["3","Three"]
+  },
+  {
+    q:"What is the largest organ of the human body?",
+    correct:["Skin","The skin"]
+  },
+  {
+    q:"Which blood type is known as the universal red-cell donor?",
+    correct:["O negative","O-","O neg"]
+  },
+  {
+    q:"What is the smallest country in the world by area?",
+    correct:["Vatican City","Vatican"]
+  },
+  {
+    q:"What is the largest desert on Earth?",
+    correct:["Antarctica","Antarctic Desert","The Antarctic Desert"]
+  },
+  {
+    q:"Which element has the chemical symbol W?",
+    correct:["Tungsten"]
+  },
+  {
+    q:"What is the hardest natural substance?",
+    correct:["Diamond"]
+  },
+  {
+    q:"What is the only continent located in all four hemispheres?",
+    correct:["Africa"]
+  },
+  {
+    q:"What is the capital of Australia?",
+    correct:["Canberra"]
+  },
+  {
+    q:"Which country has more pyramids than Egypt?",
+    correct:["Sudan"]
+  },
+  {
+    q:"What is the largest bone in the human body?",
+    correct:["Femur","The femur"]
+  },
+  {
+    q:"Which planet rotates on its side?",
+    correct:["Uranus"]
+  },
+  {
+    q:"What is the largest internal organ in the human body?",
+    correct:["Liver","The liver"]
+  },
+  {
+    q:"What gas makes up most of Earth's atmosphere?",
+    correct:["Nitrogen"]
+  },
+  {
+    q:"Which animal has fingerprints so similar to humans that they can be difficult to distinguish?",
+    correct:["Koala","Koalas"]
+  },
+  {
+    q:"What is the deepest ocean on Earth?",
+    correct:["Pacific Ocean","Pacific","The Pacific Ocean"]
+  },
+  {
+    q:"What is the smallest bone in the human body?",
+    correct:["Stapes","Stirrup","Stirrup bone"]
+  },
+  {
+    q:"Which planet is the hottest in our solar system?",
+    correct:["Venus"]
+  },
+  {
+    q:"What is the largest species of shark?",
+    correct:["Whale shark","Whale sharks"]
+  },
+  {
+    q:"Which country gifted the Statue of Liberty to the United States?",
+    correct:["France"]
+  },
+  {
+    q:"What is the largest species of penguin?",
+    correct:["Emperor penguin","Emperor"]
+  },
+  {
+    q:"How many bones are normally in an adult human body?",
+    correct:["206","Two hundred six","Two hundred and six"]
+  },
+  {
+    q:"What is the largest moon in our solar system?",
+    correct:["Ganymede"]
+  },
+  {
+    q:"Which metal is liquid at typical room temperature?",
+    correct:["Mercury"]
+  },
+  {
+    q:"What is the name of the boundary around a black hole beyond which light cannot escape?",
+    correct:["Event horizon","The event horizon"]
+  },
+  {
+    q:"Which organ produces insulin in the human body?",
+    correct:["Pancreas","The pancreas"]
+  },
+  {
+    q:"What is the largest artery in the human body?",
+    correct:["Aorta","The aorta"]
+  },
+  {
+    q:"Which sea has no land coastline?",
+    correct:["Sargasso Sea","The Sargasso Sea"]
+  }
+];
+
+
+  
 const bank=questions;
 
 const norm=s=>(s||"")
@@ -2602,22 +2727,143 @@ function showWagering(ps){
     );
 
     if(me){
-        $("wagerPlayer").classList.remove("hidden");
-        $("wagerScore").textContent=me.score||0;
-        $("wagerInput").max=me.score||0;
-    }else{
-        $("wagerPlayer").classList.add("hidden");
-    }
+    $("wagerPlayer").classList.remove("hidden");
+    $("wagerScore").textContent=me.score||0;
+    $("wagerInput").max=me.score||0;
 
-    if(state.role==="host"){
-        $("wagerHost").classList.remove("hidden");
-        $("wagerCount").textContent="0 of "+playingPlayers.length;
+    if(me.wager_locked){
+        $("wagerInput").value=me.wager||0;
+        $("wagerInput").disabled=true;
+        $("lockWager").disabled=true;
+        $("wagerMsg").textContent="🔒 Wager locked!";
     }else{
-        $("wagerHost").classList.add("hidden");
+        $("wagerInput").disabled=false;
+        $("lockWager").disabled=false;
+        $("wagerMsg").textContent="";
     }
+}else{
+    $("wagerPlayer").classList.add("hidden");
 }
 
+if(state.role==="host"){
+    $("wagerHost").classList.remove("hidden");
+
+    const locked=playingPlayers.filter(
+        p=>p.wager_locked
+    ).length;
+
+    $("wagerCount").textContent=
+        locked+" of "+playingPlayers.length;
+}else{
+    $("wagerHost").classList.add("hidden");
+
+
+
+
+
+}
+async function lockWager(){
+    const me=state.player;
+    if(!me) return;
+
+    const input=$("wagerInput").value.trim();
+
+    if(input===""){
+        $("wagerMsg").textContent="Enter a wager first.";
+        return;
+    }
+
+    const wager=Math.floor(Number(input));
+    const score=Number(me.score)||0;
+
+    if(!Number.isFinite(wager) || wager<0){
+        $("wagerMsg").textContent="Wager must be 0 or more.";
+        return;
+    }
+
+    if(wager>score){
+        $("wagerMsg").textContent=
+            "You can't wager more than your "+score+" points.";
+        return;
+    }
+
+    $("lockWager").disabled=true;
+    $("wagerInput").disabled=true;
+    $("wagerMsg").textContent="🔒 Locking wager...";
+
+    const {error}=await sb
+        .from("players")
+        .update({
+            wager:wager,
+            wager_locked:true
+        })
+        .eq("id",me.id);
+
+    if(error){
+        $("lockWager").disabled=false;
+        $("wagerInput").disabled=false;
+        $("wagerMsg").textContent=
+            "Could not lock wager: "+error.message;
+        return;
+    }
+$("wagerMsg").textContent="🔒 Wager locked!";
+
+const {data:allPlayers}=await sb
+    .from("players")
+    .select("*")
+    .eq("game_id",state.game.id);
+
+const playingPlayers=(allPlayers||[]).filter(
+    p=>!p.is_host || p.host_plays
+);
+
+const everyoneLocked=
+    playingPlayers.length>0 &&
+    playingPlayers.every(p=>p.wager_locked);
+
+await refresh();
+
+if(everyoneLocked && state.role==="host"){
+    await launchWildFactsQuestion();
+}
+}
   
+async function launchWildFactsQuestion(){
+    if(state.role!=="host") return;
+
+    const i=Math.floor(Math.random()*wildFacts.length);
+    const seconds=getTimerSeconds();
+
+    const deadline=new Date(
+        Date.now()+(seconds*1000)
+    ).toISOString();
+
+    await sb
+        .from("answers")
+        .delete()
+        .eq("game_id",state.game.id)
+        .eq("round",state.game.round);
+
+    const {error}=await sb
+        .from("games")
+        .update({
+            status:"answering",
+            question_index:i,
+            deadline:deadline
+        })
+        .eq("id",state.game.id);
+
+    if(error){
+        alert(
+            "Could not start Wild Facts question: "+
+            error.message
+        );
+        return;
+    }
+
+    await refresh();
+}
+
   
   
   
@@ -2754,7 +3000,9 @@ async function startQuestion(category){
 
 async function showQuestion(ps){
   const g=state.game;
-  const q=bank[g.question_index];
+ const q=g.final_round
+    ? wildFacts[g.question_index]
+    : bank[g.question_index];
 
   if(!q) return;
 
@@ -3418,4 +3666,5 @@ $("nextRound").onclick=nextRound;
 $("newGame").onclick=newGame;
 $("endGame").onclick=endGame;
 $("finalRound").onclick=startFinalRound;
+ $("lockWager").onclick=lockWager; 
 })();
