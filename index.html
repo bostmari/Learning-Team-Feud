@@ -111,10 +111,29 @@
             <div id="revealedAnswers"></div>
           <div id="feudBoard"></div>
 
-<div id="hostControls" class="hidden">
+  <div id="hostControls" class="hidden">
   <button id="nextRound" class="gold">Next Round →</button>
+  <button id="finalRound">🔥 Wild Facts Final Round</button>
   <button id="newGame">🔄 New Game</button>
   <button id="endGame">🏠 End Game</button>
+</div>
+ <div id="wagerPanel" class="panel hidden">
+  <h2>🔥 Wild Facts Final Round</h2>
+  <p>Risk some of your points! Choose your wager before the question is revealed.</p>
+
+  <div id="wagerPlayer">
+    <p>You have <strong><span id="wagerScore">0</span> points</strong>.</p>
+    <label>Your Wager</label>
+    <input id="wagerInput" type="number" min="0" placeholder="Enter wager">
+    <button id="lockWager" class="gold">🔒 Lock In Wager</button>
+    <p id="wagerMsg" class="msg"></p>
+  </div>
+
+  <div id="wagerHost" class="hidden">
+    <p><strong id="wagerCount">0 of 0</strong> wagers locked in</p>
+    <p class="muted">Waiting for everyone to lock in their wager…</p>
+  </div>
+</div>
 </div>
           </div>
         </div>
