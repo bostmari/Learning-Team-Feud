@@ -2357,8 +2357,9 @@ const hostPlayMode=$("hostPlayMode").value;
     .insert({
       game_id:g.id,
       name:host,
-      is_host:true,
-      score:0
+     is_host:true,
+host_plays:hostPlayMode==="host-player",
+score:0
     })
     .select()
     .single();
@@ -2598,7 +2599,7 @@ function renderLobby(ps){
       '</div>'
     ).join("");
 
-  $("startGame").disabled=ps.length<2;
+$("startGame").disabled=ps.filter(p=>!p.is_host || p.host_plays).length<2;
 
   $("hostSetup").classList.toggle(
     "hidden",
@@ -2607,7 +2608,7 @@ function renderLobby(ps){
 }
 
 function renderLeader(ps){
-let a=ps.filter(p=>!p.is_host).sort(
+let a=ps.filter(p=>!p.is_host || p.host_plays).sort(
     (x,y)=>(y.score||0)-(x.score||0)
   );
 
@@ -2753,7 +2754,7 @@ async function showQuestion(ps){
     $("hostControls").classList.add("hidden");
     $("countdownWrap").classList.remove("hidden");
 
-    if(state.role==="host"){
+    if(state.role==="host" && !state.player.host_plays){
 
       $("hostLive").classList.remove("hidden");
       $("answerEntry").classList.add("hidden");
@@ -2761,11 +2762,11 @@ async function showQuestion(ps){
       $("submittedCount").textContent=
         (ans||[]).length+
         " of "+
-        ps.filter(p=>!p.is_host).length;
+       ps.filter(p=>!p.is_host || p.host_plays).length;
 
     }else{
 
-      $("hostLive").classList.add("hidden");
+     $("hostLive").classList.toggle("hidden", state.role!=="host");
 
       const mine=(ans||[])
         .find(a=>a.player_id===state.player.id);
@@ -2838,7 +2839,7 @@ function runTimer(deadline){
 ========================= */
 
 async function submitAnswer(){
-  if(state.role==="host") return;
+ if(state.role==="host" && !state.player.host_plays) return;
 
   const txt=$("answerInput").value.trim();
 
@@ -3043,7 +3044,7 @@ async function scoreAndReveal(){
 
     for(const p of (players||[])){
 
-      if(p.is_host) continue;
+      if(p.is_host && !p.host_plays) continue;
 
       await sb
         .from("players")
