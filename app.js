@@ -2359,1312 +2359,310 @@ const wildFacts=[
 
 
   
+
+// Extra regular-round categories added in the clean rebuild.
+questions.push(
+  {cat:"🤯 Wait... What?",type:"trivia",q:"If you pass the person in second place in a race, what place are you in?",correct:["second","2nd","2"]},
+  {cat:"🤯 Wait... What?",type:"trivia",q:"How many months have 28 days?",correct:["12","twelve","all 12","all of them","all"]},
+  {cat:"🤯 Wait... What?",type:"trivia",q:"A farmer has 17 sheep and all but 9 run away. How many are left?",correct:["9","nine"]},
+  {cat:"🤯 Wait... What?",type:"trivia",q:"What gets wetter the more it dries?",correct:["towel","a towel"]},
+  {cat:"🤯 Wait... What?",type:"trivia",q:"What has hands and a face but cannot hold anything or smile?",correct:["clock","a clock"]},
+  {cat:"🤯 Wait... What?",type:"trivia",q:"What has a neck but no head?",correct:["bottle","a bottle"]},
+  {cat:"🤯 Wait... What?",type:"trivia",q:"What has many keys but cannot open a single lock?",correct:["piano","a piano","keyboard","a keyboard"]},
+  {cat:"🤯 Wait... What?",type:"trivia",q:"What can travel around the world while staying in one corner?",correct:["stamp","a stamp","postage stamp"]},
+  {cat:"🤯 Wait... What?",type:"trivia",q:"What has one eye but cannot see?",correct:["needle","a needle"]},
+  {cat:"🤯 Wait... What?",type:"trivia",q:"What goes up but never comes down?",correct:["age","your age"]},
+  {cat:"🤯 Wait... What?",type:"trivia",q:"Before Mount Everest was discovered, what was the highest mountain on Earth?",correct:["mount everest","everest"]},
+  {cat:"🤯 Wait... What?",type:"trivia",q:"If there are three apples and you take away two, how many apples do you have?",correct:["2","two"]},
+
+  {cat:"🧠 Big Brain Energy",type:"trivia",q:"What is the only even prime number?",correct:["2","two"]},
+  {cat:"🧠 Big Brain Energy",type:"trivia",q:"What is the chemical symbol for gold?",correct:["au"]},
+  {cat:"🧠 Big Brain Energy",type:"trivia",q:"Which planet has the most prominent ring system?",correct:["saturn"]},
+  {cat:"🧠 Big Brain Energy",type:"trivia",q:"What is the largest ocean on Earth?",correct:["pacific","pacific ocean","the pacific ocean"]},
+  {cat:"🧠 Big Brain Energy",type:"trivia",q:"What is the square root of 144?",correct:["12","twelve"]},
+  {cat:"🧠 Big Brain Energy",type:"trivia",q:"What is the capital of Canada?",correct:["ottawa"]},
+  {cat:"🧠 Big Brain Energy",type:"trivia",q:"Which language has the most native speakers worldwide?",correct:["mandarin","mandarin chinese","chinese"]},
+  {cat:"🧠 Big Brain Energy",type:"trivia",q:"What is the process by which plants convert light energy into chemical energy?",correct:["photosynthesis"]},
+  {cat:"🧠 Big Brain Energy",type:"trivia",q:"How many sides does a dodecagon have?",correct:["12","twelve"]},
+  {cat:"🧠 Big Brain Energy",type:"trivia",q:"Which element has atomic number 1?",correct:["hydrogen"]},
+  {cat:"🧠 Big Brain Energy",type:"trivia",q:"What is the largest planet in our solar system?",correct:["jupiter"]},
+  {cat:"🧠 Big Brain Energy",type:"trivia",q:"What part of a cell contains most of its genetic material?",correct:["nucleus","the nucleus"]},
+
+  {cat:"😂 Adulting Is a Scam",type:"feud",q:"Name something adulthood makes you weirdly excited to buy.",answers:[["Home appliances",25,["appliance","appliances","vacuum","washer"]],["Furniture",21,["furniture","couch","chair"]],["Groceries on sale",18,["sale","groceries","deal","coupon"]],["Cleaning supplies",14,["cleaning supplies","cleaner"]],["Bedding",12,["bedding","sheets","blankets"]],["Storage containers",10,["storage","containers","bins"]]]},
+  {cat:"😂 Adulting Is a Scam",type:"feud",q:"Name something that hurts more as an adult than you expected.",answers:[["Bills",27,["bills","money"]],["Back or knees",23,["back","knees","joints","body"]],["Losing sleep",17,["sleep","no sleep","tired"]],["Grocery prices",14,["groceries","food prices"]],["Car repairs",11,["car","repairs"]],["Getting out of bed",8,["bed","getting up"]]]},
+  {cat:"😂 Adulting Is a Scam",type:"feud",q:"Name something you say you will do on your day off but probably won't.",answers:[["Clean",28,["clean","cleaning"]],["Laundry",22,["laundry"]],["Exercise",17,["exercise","gym","work out"]],["Run errands",14,["errands","shopping"]],["Cook",11,["cook","meal prep"]],["Wake up early",8,["wake up early","get up early"]]]},
+  {cat:"😂 Adulting Is a Scam",type:"feud",q:"Name something you check before deciding whether you can afford to go out.",answers:[["Bank account",34,["bank","bank account","balance"]],["Upcoming bills",23,["bills","payments"]],["Payday",16,["payday","pay check","paycheck"]],["Gas tank",11,["gas","gas tank"]],["Credit card",9,["credit card","card"]],["Calendar",7,["calendar","schedule"]]]},
+  {cat:"😂 Adulting Is a Scam",type:"feud",q:"Name something adults keep saying they need to make an appointment for.",answers:[["Doctor",27,["doctor","physical"]],["Dentist",24,["dentist","dental"]],["Eye doctor",16,["eye doctor","eye exam","optometrist"]],["Hair",13,["hair","haircut","salon"]],["Car service",11,["car","oil change","mechanic"]],["Therapy",9,["therapy","therapist"]]]},
+  {cat:"😂 Adulting Is a Scam",type:"feud",q:"Name something you clean only because somebody is coming over.",answers:[["Bathroom",28,["bathroom","toilet"]],["Living room",23,["living room"]],["Kitchen",19,["kitchen"]],["Floors",13,["floors","floor","vacuum"]],["Dishes",10,["dishes"]],["Bedroom",7,["bedroom"]]]},
+  {cat:"😂 Adulting Is a Scam",type:"feud",q:"Name something you buy and immediately wonder why it costs that much.",answers:[["Groceries",28,["groceries","food"]],["Gas",22,["gas"]],["Medicine",16,["medicine","medication"]],["Furniture",13,["furniture"]],["Concert tickets",12,["tickets","concert"]],["Fast food",9,["fast food","takeout"]]]},
+  {cat:"😂 Adulting Is a Scam",type:"feud",q:"Name something that can turn a quick errand into an hour-long mission.",answers:[["Walmart or big store",25,["walmart","store","shopping"]],["Traffic",22,["traffic"]],["Running into someone",18,["someone","friend","talking"]],["Kids",15,["kids","children"]],["Long line",12,["line","checkout"]],["Forgetting the list",8,["list","forgot"]]]},
+  {cat:"😂 Adulting Is a Scam",type:"feud",q:"Name something you own way too many of but keep buying.",answers:[["Clothes",25,["clothes","shirts"]],["Shoes",21,["shoes"]],["Cups or tumblers",18,["cups","tumblers","mugs"]],["Blankets",14,["blankets"]],["Phone chargers",12,["chargers","charger"]],["Candles",10,["candles","candle"]]]},
+  {cat:"😂 Adulting Is a Scam",type:"feud",q:"Name something that makes you feel instantly older.",answers:[["Body aches",26,["aches","pain","back","knees"]],["Kids growing up",21,["kids","children"]],["Music from your childhood called old",18,["music","old music"]],["Going to bed early",14,["bed early","sleep"]],["Gray hair",12,["gray hair","grey hair"]],["Talking about prices",9,["prices","money"]]]},
+  {cat:"😂 Adulting Is a Scam",type:"feud",q:"Name something you do before guests arrive that fools nobody.",answers:[["Shove clutter somewhere",29,["hide clutter","closet","shove stuff"]],["Light a candle",20,["candle","air freshener"]],["Quick vacuum",17,["vacuum"]],["Hide dirty dishes",14,["dishes","hide dishes"]],["Fix couch pillows",11,["pillows","couch"]],["Close bedroom doors",9,["close doors","bedroom door"]]]},
+  {cat:"😂 Adulting Is a Scam",type:"feud",q:"Name something you refuse to throw away because you might need it someday.",answers:[["Cords or chargers",27,["cords","chargers","cables"]],["Boxes",22,["boxes","box"]],["Containers",17,["containers","tupperware"]],["Old clothes",14,["clothes"]],["Random screws or hardware",11,["screws","hardware","parts"]],["Bags",9,["bags","plastic bags"]]]},
+
+  {cat:"🚩 Unhinged & Honest",type:"feud",q:"Name something you would absolutely judge a date for doing.",answers:[["Being rude to staff",27,["rude","staff","server"]],["Bad hygiene",22,["hygiene","smell","dirty"]],["Talking about an ex",18,["ex"]],["Being glued to their phone",14,["phone"]],["Lying",11,["lying","lie"]],["Chewing loudly",8,["chewing","eat loud"]]]},
+  {cat:"🚩 Unhinged & Honest",type:"feud",q:"Name something people investigate online before a first date.",answers:[["Social media",30,["social media","facebook","instagram"]],["Relationship status",21,["relationship","single"]],["Photos",18,["photos","pictures"]],["Job",13,["job","work"]],["Mutual friends",10,["friends","mutual friends"]],["Criminal record",8,["criminal","record","court"]]]},
+  {cat:"🚩 Unhinged & Honest",type:"feud",q:"Name a tiny thing that can make you irrationally annoyed.",answers:[["Loud chewing",24,["chewing","eating loud"]],["Slow walkers",21,["slow walkers","walking slow"]],["People blocking an aisle",17,["aisle","blocking"]],["Unread notifications",14,["notifications","notification"]],["Someone leaving cabinets open",13,["cabinet","cabinets"]],["Wet socks",11,["wet socks","socks"]]]},
+  {cat:"🚩 Unhinged & Honest",type:"feud",q:"Name something people do when they want attention without asking for it.",answers:[["Post on social media",27,["post","social media"]],["Act upset",21,["upset","sad","mad"]],["Send a vague text",18,["vague text","text"]],["Get extra quiet",14,["quiet","silent"]],["Sigh loudly",11,["sigh","sighing"]],["Start drama",9,["drama"]]]},
+  {cat:"🚩 Unhinged & Honest",type:"feud",q:"Name something you might pretend not to see so you don't have to deal with it.",answers:[["A mess",26,["mess","dirty"]],["A text",22,["text","message"]],["A bill",18,["bill","bills"]],["Someone you know in public",14,["person","someone","coworker"]],["Low gas light",11,["gas","gas light"]],["Laundry",9,["laundry"]]]},
+  {cat:"🚩 Unhinged & Honest",type:"feud",q:"Name something people secretly compare with their friends.",answers:[["Money",24,["money","salary","income"]],["Relationships",21,["relationship","partner"]],["Kids",17,["kids","children"]],["House",15,["house","home"]],["Career",13,["career","job","work"]],["Looks",10,["looks","appearance","body"]]]},
+  {cat:"🚩 Unhinged & Honest",type:"feud",q:"Name something that makes you immediately suspicious in a group chat.",answers:[["Someone says we need to talk",26,["need to talk","talk"]],["Everybody suddenly gets quiet",21,["quiet","silent"]],["A deleted message",18,["deleted message","delete"]],["Someone adds a new person",14,["new person","added"]],["A screenshot",12,["screenshot"]],["Too many question marks",9,["question marks","???"]]]},
+  {cat:"🚩 Unhinged & Honest",type:"feud",q:"Name something you might lie about just to avoid plans.",answers:[["Being sick",28,["sick","ill"]],["Being tired",21,["tired","sleepy"]],["Already having plans",18,["plans","busy"]],["Kids need something",13,["kids","children"]],["Car trouble",11,["car","car trouble"]],["Having to work",9,["work","working"]]]},
+  {cat:"🚩 Unhinged & Honest",type:"feud",q:"Name something people do after saying 'I'm not mad.'",answers:[["Get quiet",27,["quiet","silent"]],["Give attitude",23,["attitude"]],["Walk away",17,["walk away","leave"]],["Send a long text",13,["text","message"]],["Slam something",11,["slam","door"]],["Bring it up later",9,["later","bring it up"]]]},
+  {cat:"🚩 Unhinged & Honest",type:"feud",q:"Name something that can start an argument in under ten seconds.",answers:[["Money",23,["money"]],["An ex",20,["ex"]],["Who was supposed to do a chore",18,["chore","chores","cleaning"]],["A tone of voice",16,["tone","attitude"]],["Driving",13,["driving","drive"]],["Where to eat",10,["food","restaurant","eat"]]]},
+  {cat:"🚩 Unhinged & Honest",type:"feud",q:"Name something you would not want your phone to accidentally display on a big screen.",answers:[["Text messages",27,["texts","messages"]],["Photos",23,["photos","pictures"]],["Search history",19,["search history","history"]],["Bank balance",12,["bank","balance"]],["Dating app",10,["dating app","tinder"]],["Notes",9,["notes"]]]},
+  {cat:"🚩 Unhinged & Honest",type:"feud",q:"Name something you might do after sending a risky text.",answers:[["Stare at the phone",27,["stare","phone"]],["Regret it",22,["regret","panic"]],["Put phone down",17,["put phone down","walk away"]],["Check read receipt",14,["read receipt","read"]],["Text a friend",11,["friend","text friend"]],["Delete or unsend it",9,["delete","unsend"]]]},
+
+  {cat:"🕵️ Common Sense?",type:"trivia",q:"If a doctor gives you three pills and tells you to take one every 30 minutes, how long until all three have been taken?",correct:["1 hour","one hour","60 minutes","60"]},
+  {cat:"🕵️ Common Sense?",type:"trivia",q:"How many birthdays does the average person have?",correct:["1","one"]},
+  {cat:"🕵️ Common Sense?",type:"trivia",q:"A rooster lays an egg on top of a roof. Which side does the egg roll down?",correct:["neither","roosters dont lay eggs","roosters do not lay eggs","a rooster cant lay eggs"]},
+  {cat:"🕵️ Common Sense?",type:"trivia",q:"What word becomes shorter when you add two letters to it?",correct:["short","the word short"]},
+  {cat:"🕵️ Common Sense?",type:"trivia",q:"What belongs to you but other people use it more than you do?",correct:["name","your name"]},
+  {cat:"🕵️ Common Sense?",type:"trivia",q:"If an electric train is traveling north, which way does its smoke blow?",correct:["no smoke","it doesnt have smoke","electric trains dont make smoke","none"]},
+  {cat:"🕵️ Common Sense?",type:"trivia",q:"What can you catch but not throw?",correct:["cold","a cold"]},
+  {cat:"🕵️ Common Sense?",type:"trivia",q:"What has teeth but cannot bite?",correct:["comb","a comb"]},
+  {cat:"🕵️ Common Sense?",type:"trivia",q:"What kind of room has no doors or windows?",correct:["mushroom","a mushroom"]},
+  {cat:"🕵️ Common Sense?",type:"trivia",q:"What comes once in a minute, twice in a moment, but never in a thousand years?",correct:["m","the letter m","letter m"]},
+  {cat:"🕵️ Common Sense?",type:"trivia",q:"What has cities but no houses, forests but no trees, and water but no fish?",correct:["map","a map"]},
+  {cat:"🕵️ Common Sense?",type:"trivia",q:"If you have one match and enter a dark room with a candle, a lamp, and a fireplace, what do you light first?",correct:["match","the match"]}
+);
+
+wildFacts.forEach(q=>{
+  q.cat="🔥 Wild Facts Final Round";
+  q.type="trivia";
+});
+
 const bank=questions;
 
 const norm=s=>(s||"")
-  .toLowerCase()
-  .trim()
-  .replace(/[^\w\s']/g,"")
+  .toLowerCase().trim()
+  .replace(/[^a-z0-9\s']/g,"")
   .replace(/\s+/g," ");
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const el=id=>$(id);
+const hide=id=>el(id)?.classList.add("hidden");
+const show=id=>el(id)?.classList.remove("hidden");
 
-const esc=s=>{
-  const d=document.createElement("div");
-  d.textContent=s||"";
-  return d.innerHTML;
-};
-
-function mult(r){
-  return r>=5?3:r>=3?2:1;
+// Keep the Final Round wager card independent from the normal answer reveal.
+if(el("wagerPanel") && el("hostCategories")?.parentElement){
+  el("hostCategories").parentElement.appendChild(el("wagerPanel"));
 }
 
-function code(){
-  return String(Math.floor(1000+Math.random()*9000));
-}
-
-function getTimerSeconds(){
-  const el=$("timerSelect");
-  const n=Number(el?.value||35);
-  return [15,20,25,30,35].includes(n)?n:35;
-}
-
-function getCategories(){
-  return [...new Set(bank.map(q=>q.cat))];
-}
-
-function usedKey(){
-  return "feud-used-all-games";
-}
-
-function loadUsed(){
-  try{
-    state.used=new Set(
-      JSON.parse(localStorage.getItem(usedKey())||"[]")
-    );
-  }catch{
-    state.used=new Set();
-  }
-}
-
-function saveUsed(){
-  try{
-    localStorage.setItem(
-      usedKey(),
-      JSON.stringify([...state.used])
-    );
-  }catch{}
-}
-
-function clearUsed(){
-    loadUsed();
-}
-
+function mult(r){ return r<=2?1:r<=4?2:3; }
+function code(){ return String(Math.floor(1000+Math.random()*9000)); }
+function getTimerSeconds(){ const n=Number(el("timerSelect")?.value||35); return [15,20,25,30,35].includes(n)?n:35; }
+function getCategories(){ return [...new Set(bank.map(q=>q.cat))]; }
+function usedKey(){ return "feud-used-all-games"; }
+function loadUsed(){ try{state.used=new Set(JSON.parse(localStorage.getItem(usedKey())||"[]"));}catch{state.used=new Set();} }
+function saveUsed(){ try{localStorage.setItem(usedKey(),JSON.stringify([...state.used]));}catch{} }
+function clearUsed(){ loadUsed(); }
 function pickUnused(category){
-  const choices=[];
-
-  bank.forEach((q,i)=>{
-    if(q.cat===category && !state.used.has(i)){
-      choices.push(i);
-    }
-  });
-
-  if(!choices.length){
-    bank.forEach((q,i)=>{
-      if(q.cat===category){
-        state.used.delete(i);
-        choices.push(i);
-      }
-    });
-  }
-
-  const picked=
-    choices[Math.floor(Math.random()*choices.length)];
-
-  state.used.add(picked);
-  saveUsed();
-
-  return picked;
+  let choices=[];
+  bank.forEach((q,i)=>{ if(q.cat===category&&!state.used.has(i)) choices.push(i); });
+  if(!choices.length){ bank.forEach((q,i)=>{ if(q.cat===category){state.used.delete(i);choices.push(i);} }); }
+  const picked=choices[Math.floor(Math.random()*choices.length)];
+  state.used.add(picked); saveUsed(); return picked;
 }
-
-/* =========================
-   CREATE / JOIN GAME
-========================= */
+function finalUsedKey(){ return "feud-used-wild-facts"; }
+function pickWildFact(){
+  let used=[]; try{used=JSON.parse(localStorage.getItem(finalUsedKey())||"[]");}catch{}
+  let choices=wildFacts.map((_,i)=>i).filter(i=>!used.includes(i));
+  if(!choices.length){used=[];choices=wildFacts.map((_,i)=>i);}
+  const i=choices[Math.floor(Math.random()*choices.length)];
+  used.push(i); try{localStorage.setItem(finalUsedKey(),JSON.stringify(used));}catch{} return i;
+}
+function playingPlayers(ps){ return (ps||[]).filter(p=>!p.is_host||p.host_plays); }
+function chooserForRound(ps,round){
+  const rotation=(ps||[]).slice(); // Host is intentionally included even in Host Only mode.
+  if(!rotation.length) return null;
+  return rotation[(Math.max(1,Number(round)||1)-1)%rotation.length];
+}
+function isMe(p){ return !!p&&!!state.player&&p.id===state.player.id; }
 
 async function createGame(){
   if(C.SUPABASE_URL.includes("PASTE_")) return;
-
-  const host=$("hostName").value.trim();
-const hostPlayMode=$("hostPlayMode").value;
-  if(!host){
-    $("homeMsg").textContent="Enter your host name.";
-    return;
-  }
-
-  let room=code();
-
-  const {data:g,error}=await sb
-    .from("games")
-    .insert({
-      room_code:room,
-      host_name:host,
-      status:"lobby",
-      round:1
-    })
-    .select()
-    .single();
-
-  if(error){
-    $("homeMsg").textContent=error.message;
-    return;
-  }
-
-  const {data:p,error:pe}=await sb
-    .from("players")
-    .insert({
-      game_id:g.id,
-      name:host,
-     is_host:true,
-host_plays:hostPlayMode==="host-player",
-score:0
-    })
-    .select()
-    .single();
-
-  if(pe){
-    $("homeMsg").textContent=pe.message;
-    return;
-  }
-
-  state={
-    ...state,
-    role:"host",
-    game:g,
-    player:p,
-    lastQuestion:null,
-    scoring:false
-  };
-
-  clearUsed();
-  enterLobby();
-  subscribe();
+  const host=el("hostName")?.value.trim();
+  const hostPlayMode=el("hostPlayMode")?.value||"host-only";
+  if(!host){ if(el("homeMsg")) el("homeMsg").textContent="Enter your host name."; return; }
+  const {data:g,error}=await sb.from("games").insert({room_code:code(),host_name:host,status:"lobby",round:1,final_round:false}).select().single();
+  if(error){el("homeMsg").textContent=error.message;return;}
+  const {data:p,error:pe}=await sb.from("players").insert({game_id:g.id,name:host,is_host:true,host_plays:hostPlayMode==="host-player",score:0,wager:0,wager_locked:false}).select().single();
+  if(pe){el("homeMsg").textContent=pe.message;return;}
+  state={...state,role:"host",game:g,player:p,lastQuestion:null,scoring:false,launchingFinal:false,launchingCategory:false};
+  clearUsed(); enterLobby(); subscribe();
 }
-
 async function joinGame(){
   if(C.SUPABASE_URL.includes("PASTE_")) return;
-
-  const name=$("joinName").value.trim();
-  const room=$("joinCode").value.trim();
-
-  if(!name || room.length!==4){
-    $("homeMsg").textContent=
-      "Enter your name and 4-digit room code.";
-    return;
-  }
-
-  const {data:g,error}=await sb
-    .from("games")
-    .select("*")
-    .eq("room_code",room)
-    .neq("status","finished")
-    .maybeSingle();
-
-  if(error || !g){
-    $("homeMsg").textContent="Room not found.";
-    return;
-  }
-
-  const {data:p,error:pe}=await sb
-    .from("players")
-    .insert({
-      game_id:g.id,
-      name,
-      is_host:false,
-      score:0
-    })
-    .select()
-    .single();
-
-  if(pe){
-    $("homeMsg").textContent=pe.message;
-    return;
-  }
-
-  state={
-    ...state,
-    role:"player",
-    game:g,
-    player:p,
-    lastQuestion:null,
-    scoring:false
-  };
-
-  enterLobby();
-  subscribe();
+  const name=el("joinName")?.value.trim(), room=el("joinCode")?.value.trim();
+  if(!name||room.length!==4){el("homeMsg").textContent="Enter your name and 4-digit room code.";return;}
+  const {data:g,error}=await sb.from("games").select("*").eq("room_code",room).neq("status","finished").maybeSingle();
+  if(error||!g){el("homeMsg").textContent="Room not found.";return;}
+  const {data:p,error:pe}=await sb.from("players").insert({game_id:g.id,name,is_host:false,host_plays:false,score:0,wager:0,wager_locked:false}).select().single();
+  if(pe){el("homeMsg").textContent=pe.message;return;}
+  state={...state,role:"player",game:g,player:p,lastQuestion:null,scoring:false,launchingFinal:false,launchingCategory:false};
+  enterLobby(); subscribe();
 }
-
-/* =========================
-   LOBBY
-========================= */
-
-function enterLobby(){
-  $("home").classList.add("hidden");
-  $("play").classList.add("hidden");
-  $("lobby").classList.remove("hidden");
-
-  $("roomCode").textContent=state.game.room_code;
-
-  $("lobbyRole").textContent=
-    state.role==="host"
-      ?"🎤 Host: "+state.player.name
-      :"👤 "+state.player.name;
-
-  $("startGame").classList.toggle(
-    "hidden",
-    state.role!=="host"
-  );
-
-  $("hostSetup").classList.toggle(
-    "hidden",
-    state.role!=="host"
-  );
-
-  $("lobbyWait").classList.toggle(
-    "hidden",
-    state.role==="host"
-  );
-
-  refresh();
-}
-
-/* =========================
-   REALTIME
-========================= */
-
+function enterLobby(){ hide("home");hide("play");show("lobby"); el("roomCode").textContent=state.game.room_code; el("lobbyRole").textContent=state.role==="host"?"🎤 Host: "+state.player.name:"👤 "+state.player.name; el("startGame")?.classList.toggle("hidden",state.role!=="host"); el("hostSetup")?.classList.toggle("hidden",state.role!=="host"); el("lobbyWait")?.classList.toggle("hidden",state.role==="host"); refresh(); }
 async function subscribe(){
-  if(state.channel){
-    await sb.removeChannel(state.channel);
-  }
-
-  state.channel=sb
-    .channel("game-"+state.game.id)
-
-    .on(
-      "postgres_changes",
-      {
-        event:"*",
-        schema:"public",
-        table:"games",
-        filter:"id=eq."+state.game.id
-      },
-      ()=>refresh()
-    )
-
-    .on(
-      "postgres_changes",
-      {
-        event:"*",
-        schema:"public",
-        table:"players",
-        filter:"game_id=eq."+state.game.id
-      },
-      ()=>refresh()
-    )
-
-    .on(
-      "postgres_changes",
-      {
-        event:"*",
-        schema:"public",
-        table:"answers",
-        filter:"game_id=eq."+state.game.id
-      },
-      ()=>refresh()
-    )
-
-    .subscribe(s=>{
-      $("connectionStatus").textContent=
-        s==="SUBSCRIBED"
-          ?"🟢 Connected"
-          :"Connecting…";
-    });
+  if(state.channel) await sb.removeChannel(state.channel);
+  state.channel=sb.channel("game-"+state.game.id)
+    .on("postgres_changes",{event:"*",schema:"public",table:"games",filter:"id=eq."+state.game.id},()=>refresh())
+    .on("postgres_changes",{event:"*",schema:"public",table:"players",filter:"game_id=eq."+state.game.id},()=>refresh())
+    .on("postgres_changes",{event:"*",schema:"public",table:"answers",filter:"game_id=eq."+state.game.id},()=>refresh())
+    .subscribe(s=>{if(el("connectionStatus"))el("connectionStatus").textContent=s==="SUBSCRIBED"?"🟢 Connected":"Connecting…";});
 }
-
-/* =========================
-   REFRESH GAME
-========================= */
-
 async function refresh(){
-  if(!state.game) return;
-
-  const {data:g}=await sb
-    .from("games")
-    .select("*")
-    .eq("id",state.game.id)
-    .single();
-
-  if(!g) return;
-
-  state.game=g;
-
-  if(g.status==="finished"){
-    goHome();
-    return;
-  }
-
-  const {data:ps}=await sb
-    .from("players")
-    .select("*")
-    .eq("game_id",g.id)
-    .order("created_at");
-
-  if(g.status==="lobby"){
-    $("play").classList.add("hidden");
-    $("lobby").classList.remove("hidden");
-    renderLobby(ps||[]);
-    return;
-  }
-
-  $("lobby").classList.add("hidden");
-  $("play").classList.remove("hidden");
-
-  $("playRoom").textContent="Room "+g.room_code;
-  $("playHost").textContent="Hosted by "+g.host_name;
-  $("roundNum").textContent=g.round;
-  $("roundMult").textContent=mult(g.round)+"×";
-
+  if(!state.game)return;
+  const {data:g}=await sb.from("games").select("*").eq("id",state.game.id).single(); if(!g)return; state.game=g;
+  if(g.status==="finished"){goHome();return;}
+  const {data:ps}=await sb.from("players").select("*").eq("game_id",g.id).order("created_at");
+  const me=(ps||[]).find(p=>p.id===state.player?.id); if(me)state.player=me;
+  if(g.status==="lobby"){hide("play");show("lobby");renderLobby(ps||[]);return;}
+  hide("lobby");show("play"); if(el("playRoom"))el("playRoom").textContent="Room "+g.room_code; if(el("playHost"))el("playHost").textContent="Hosted by "+g.host_name;
+  if(el("roundNum"))el("roundNum").textContent=g.final_round?"FINAL":g.round;
+  if(el("roundMult"))el("roundMult").textContent=g.final_round?"WAGER":mult(g.round)+"×";
   renderLeader(ps||[]);
-if(g.status==="wagering"){
-    showWagering(ps||[]);
+  if(g.status==="queued_category"){
+    showCategoryQueued(ps||[]);
+    if(state.role==="host"&&!state.launchingCategory){state.launchingCategory=true;await hostLaunchCategory(Number(g.question_index));state.launchingCategory=false;}
     return;
+  }
+  if(g.status==="wagering"){showWagering(ps||[]);return;}
+  if(g.status==="choosing"){showChoosing(ps||[]);return;}
+  if(g.status==="answering"||g.status==="revealed") await showQuestion(ps||[]);
 }
-  if(g.status==="choosing"){
-    showChoosing();
-    return;
+function renderLobby(ps){
+  if(el("lobbyPlayers"))el("lobbyPlayers").innerHTML=ps.map(p=>'<div class="player"><span>'+(p.is_host?"🎤 ":"👤 ")+esc(p.name)+'</span><span>'+(p.is_host?"Host":"Ready")+'</span></div>').join("");
+  if(el("startGame"))el("startGame").disabled=playingPlayers(ps).length<2;
+  el("hostSetup")?.classList.toggle("hidden",state.role!=="host");
+}
+function renderLeader(ps){
+  const a=playingPlayers(ps).sort((x,y)=>(y.score||0)-(x.score||0));
+  if(el("leaderboard"))el("leaderboard").innerHTML=a.map((p,i)=>'<div class="leader"><span>'+(i===0?"🥇 ":i===1?"🥈 ":i===2?"🥉 ":"")+esc(p.name)+'</span><strong>'+(p.score||0)+'</strong></div>').join("");
+}
+function showChoosing(ps){
+  clearInterval(state.timer); hide("questionPanel");hide("wagerPanel");hide("revealPanel");hide("hostControls");
+  const chooser=chooserForRound(ps,state.game.round); const canChoose=isMe(chooser)||state.role==="host";
+  if(canChoose){
+    show("hostCategories");hide("waitingQuestion");
+    const cats=getCategories();
+    const note=state.role==="host"&&!isMe(chooser)?'<p class="muted">🎯 '+esc(chooser?.name||"Player")+'\'s pick — Host Override is available.</p>':'<p class="muted">🎯 '+esc(chooser?.name||"You")+'\'s pick!</p>';
+    if(el("categoryGrid"))el("categoryGrid").innerHTML=note+cats.map((cat,i)=>'<button class="cat" data-cat="'+i+'">'+esc(cat)+'</button>').join("");
+    document.querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>selectCategory(Number(b.dataset.cat),ps));
+  }else{
+    hide("hostCategories");show("waitingQuestion");
+    const box=el("waitingQuestion"); if(box){const h=box.querySelector("h2");const p=box.querySelector("p");if(h)h.textContent="🎯 "+(chooser?.name||"Another player")+" is choosing!";if(p)p.textContent="The category and question will appear as soon as they pick.";}
   }
-
-  if(
-    g.status==="answering" ||
-    g.status==="revealed"
-  ){
-    await showQuestion(ps||[]);
-  }
+}
+function showCategoryQueued(ps){
+  clearInterval(state.timer);hide("questionPanel");hide("hostCategories");hide("wagerPanel");show("waitingQuestion");
+  const chooser=chooserForRound(ps,state.game.round);const box=el("waitingQuestion");if(box){const h=box.querySelector("h2");const p=box.querySelector("p");if(h)h.textContent="🎯 "+(chooser?.name||"Player")+" picked!";if(p)p.textContent="Loading the question…";}
+}
+async function selectCategory(catIndex,ps){
+  const chooser=chooserForRound(ps,state.game.round); if(!isMe(chooser)&&state.role!=="host")return;
+  document.querySelectorAll("[data-cat]").forEach(b=>b.disabled=true);
+  if(state.role==="host"){await hostLaunchCategory(catIndex);return;}
+  const {error}=await sb.from("games").update({status:"queued_category",question_index:catIndex,deadline:null,final_round:false}).eq("id",state.game.id).eq("status","choosing");
+  if(error)alert("Could not choose category: "+error.message);
+}
+async function hostLaunchCategory(catIndex){
+  if(state.role!=="host")return;
+  const cats=getCategories(),category=cats[catIndex]; if(!category)return;
+  const i=pickUnused(category),seconds=getTimerSeconds(),deadline=new Date(Date.now()+seconds*1000).toISOString();
+  await sb.from("answers").delete().eq("game_id",state.game.id).eq("round",state.game.round);
+  const {error}=await sb.from("games").update({status:"answering",question_index:i,deadline,final_round:false}).eq("id",state.game.id);
+  if(error)alert("Could not start question: "+error.message);
 }
 function showWagering(ps){
-    clearInterval(state.timer);
-
-    $("questionPanel").classList.add("hidden");
-    $("waitingQuestion").classList.add("hidden");
-    $("hostCategories").classList.add("hidden");
-    $("hostControls").classList.add("hidden");
-
-    $("wagerPanel").classList.remove("hidden");
-
-    const playingPlayers=(ps||[]).filter(
-        p=>!p.is_host || p.host_plays
-    );
-
-    const me=playingPlayers.find(
-        p=>p.id===state.player.id
-    );
-
-    if(me){
-    $("wagerPlayer").classList.remove("hidden");
-    $("wagerScore").textContent=me.score||0;
-    $("wagerInput").max=me.score||0;
-
-    if(me.wager_locked){
-        $("wagerInput").value=me.wager||0;
-        $("wagerInput").disabled=true;
-        $("lockWager").disabled=true;
-        $("wagerMsg").textContent="🔒 Wager locked!";
-    }else{
-        $("wagerInput").disabled=false;
-        $("lockWager").disabled=false;
-        $("wagerMsg").textContent="";
-    }
-}else{
-    $("wagerPlayer").classList.add("hidden");
-}
-
-if(state.role==="host"){
-    $("wagerHost").classList.remove("hidden");
-
-    const locked=playingPlayers.filter(
-        p=>p.wager_locked
-    ).length;
-
-    $("wagerCount").textContent=
-        locked+" of "+playingPlayers.length;
-}else{
-    $("wagerHost").classList.add("hidden");
-
-
-
-
-
+  clearInterval(state.timer);hide("questionPanel");hide("waitingQuestion");hide("hostCategories");hide("hostControls");hide("revealPanel");show("wagerPanel");
+  const players=playingPlayers(ps),me=players.find(p=>p.id===state.player?.id);
+  if(me){show("wagerPlayer");if(el("wagerScore"))el("wagerScore").textContent=me.score||0;if(el("wagerInput")){el("wagerInput").max=me.score||0;el("wagerInput").disabled=!!me.wager_locked;if(me.wager_locked)el("wagerInput").value=me.wager||0;}if(el("lockWager"))el("lockWager").disabled=!!me.wager_locked;if(el("wagerMsg"))el("wagerMsg").textContent=me.wager_locked?"🔒 Wager locked!":"";}else hide("wagerPlayer");
+  if(state.role==="host"){show("wagerHost");const locked=players.filter(p=>p.wager_locked).length;if(el("wagerCount"))el("wagerCount").textContent=locked+" of "+players.length;if(players.length&&locked===players.length&&!state.launchingFinal){state.launchingFinal=true;launchWildFactsQuestion().finally(()=>state.launchingFinal=false);}}else hide("wagerHost");
 }
 async function lockWager(){
-    const me=state.player;
-    if(!me) return;
-
-    const input=$("wagerInput").value.trim();
-
-    if(input===""){
-        $("wagerMsg").textContent="Enter a wager first.";
-        return;
-    }
-
-    const wager=Math.floor(Number(input));
-    const score=Number(me.score)||0;
-
-    if(!Number.isFinite(wager) || wager<0){
-        $("wagerMsg").textContent="Wager must be 0 or more.";
-        return;
-    }
-
-    if(wager>score){
-        $("wagerMsg").textContent=
-            "You can't wager more than your "+score+" points.";
-        return;
-    }
-
-    $("lockWager").disabled=true;
-    $("wagerInput").disabled=true;
-    $("wagerMsg").textContent="🔒 Locking wager...";
-
-    const {error}=await sb
-        .from("players")
-        .update({
-            wager:wager,
-            wager_locked:true
-        })
-        .eq("id",me.id);
-
-    if(error){
-        $("lockWager").disabled=false;
-        $("wagerInput").disabled=false;
-        $("wagerMsg").textContent=
-            "Could not lock wager: "+error.message;
-        return;
-    }
-$("wagerMsg").textContent="🔒 Wager locked!";
-
-const {data:allPlayers}=await sb
-    .from("players")
-    .select("*")
-    .eq("game_id",state.game.id);
-
-const playingPlayers=(allPlayers||[]).filter(
-    p=>!p.is_host || p.host_plays
-);
-
-const everyoneLocked=
-    playingPlayers.length>0 &&
-    playingPlayers.every(p=>p.wager_locked);
-
-await refresh();
-
-if(everyoneLocked && state.role==="host"){
-    await launchWildFactsQuestion();
+  const me=state.player;if(!me||state.game.status!=="wagering")return;const raw=el("wagerInput")?.value.trim();if(raw===""){el("wagerMsg").textContent="Enter a wager first.";return;}const wager=Math.floor(Number(raw)),score=Math.max(0,Number(me.score)||0);if(!Number.isFinite(wager)||wager<0){el("wagerMsg").textContent="Wager must be 0 or more.";return;}if(wager>score){el("wagerMsg").textContent="You can't wager more than your "+score+" points.";return;}
+  el("lockWager").disabled=true;el("wagerInput").disabled=true;el("wagerMsg").textContent="🔒 Locking wager...";
+  const {error}=await sb.from("players").update({wager,wager_locked:true}).eq("id",me.id);if(error){el("lockWager").disabled=false;el("wagerInput").disabled=false;el("wagerMsg").textContent="Could not lock wager: "+error.message;return;}el("wagerMsg").textContent="🔒 Wager locked!";await refresh();
 }
-}
-  
 async function launchWildFactsQuestion(){
-    if(state.role!=="host") return;
-
-    const i=Math.floor(Math.random()*wildFacts.length);
-    const seconds=getTimerSeconds();
-
-    const deadline=new Date(
-        Date.now()+(seconds*1000)
-    ).toISOString();
-
-    await sb
-        .from("answers")
-        .delete()
-        .eq("game_id",state.game.id)
-        .eq("round",state.game.round);
-
-    const {error}=await sb
-        .from("games")
-        .update({
-            status:"answering",
-            question_index:i,
-            deadline:deadline
-        })
-        .eq("id",state.game.id);
-
-    if(error){
-        alert(
-            "Could not start Wild Facts question: "+
-            error.message
-        );
-        return;
-    }
-
-    await refresh();
+  if(state.role!=="host"||state.game.status!=="wagering")return;const i=pickWildFact(),seconds=getTimerSeconds(),deadline=new Date(Date.now()+seconds*1000).toISOString();
+  await sb.from("answers").delete().eq("game_id",state.game.id).eq("round",state.game.round);
+  const {error}=await sb.from("games").update({status:"answering",question_index:i,deadline,final_round:true}).eq("id",state.game.id).eq("status","wagering");if(error)alert("Could not start Wild Facts question: "+error.message);
 }
-
-  
-  
-  
-  /* =========================
-   PLAYER LIST / LEADERBOARD
-========================= */
-
-function renderLobby(ps){
-  $("lobbyPlayers").innerHTML=
-    ps.map(p=>
-      '<div class="player">'+
-      '<span>'+
-      (p.is_host?"🎤 ":"👤 ")+
-      esc(p.name)+
-      '</span>'+
-      '<span>'+
-      (p.is_host?"Host":"Ready")+
-      '</span>'+
-      '</div>'
-    ).join("");
-
-$("startGame").disabled=ps.filter(p=>!p.is_host || p.host_plays).length<2;
-
-  $("hostSetup").classList.toggle(
-    "hidden",
-    state.role!=="host"
-  );
-}
-
-function renderLeader(ps){
-let a=ps.filter(p=>!p.is_host || p.host_plays).sort(
-    (x,y)=>(y.score||0)-(x.score||0)
-  );
-
-  $("leaderboard").innerHTML=
-    a.map((p,i)=>
-      '<div class="leader">'+
-      '<span>'+
-      (i===0?"🥇 ":
-       i===1?"🥈 ":
-       i===2?"🥉 ":"")+
-      esc(p.name)+
-      '</span>'+
-      '<strong>'+
-      (p.score||0)+
-      '</strong>'+
-      '</div>'
-    ).join("");
-}
-
-/* =========================
-   CATEGORY SCREEN
-========================= */
-
-function showChoosing(){
-  clearInterval(state.timer);
-
-  $("questionPanel").classList.add("hidden");
-
-  $("waitingQuestion").classList.toggle(
-    "hidden",
-    state.role==="host"
-  );
-
-  $("hostCategories").classList.toggle(
-    "hidden",
-    state.role!=="host"
-  );
-
-  $("hostControls").classList.add("hidden");
-
-  if(state.role==="host"){
-    const cats=getCategories();
-
-    $("categoryGrid").innerHTML=
-      cats.map((cat,i)=>
-        '<button class="cat" data-cat="'+i+'">'+
-        cat+
-        '</button>'
-      ).join("");
-
-    document
-      .querySelectorAll("[data-cat]")
-      .forEach(b=>{
-        b.onclick=()=>{
-          const cat=cats[Number(b.dataset.cat)];
-          startQuestion(cat);
-        };
-      });
-  }
-}
-
-/* =========================
-   START QUESTION
-========================= */
-
-async function startQuestion(category){
-  if(state.role!=="host") return;
-
-  const i=pickUnused(category);
-  const seconds=getTimerSeconds();
-
-  const deadline=
-    new Date(
-      Date.now()+(seconds*1000)
-    ).toISOString();
-
-  await sb
-    .from("answers")
-    .delete()
-    .eq("game_id",state.game.id)
-    .eq("round",state.game.round);
-
-  const {error}=await sb
-    .from("games")
-    .update({
-      status:"answering",
-      question_index:i,
-      deadline
-    })
-    .eq("id",state.game.id);
-
-  if(error){
-    alert("Could not start question: "+error.message);
-    return;
-  }
-
-  await refresh();
-}
-
-/* =========================
-   SHOW QUESTION
-========================= */
-
 async function showQuestion(ps){
-  const g=state.game;
- const q=g.final_round
-    ? wildFacts[g.question_index]
-    : bank[g.question_index];
-
-  if(!q) return;
-
-  const questionKey=
-    g.round+"-"+g.question_index;
-
-  if(state.lastQuestion!==questionKey){
-    $("answerInput").value="";
-    $("answerMsg").textContent="";
-    $("answerInput").disabled=false;
-    $("lockAnswer").disabled=false;
-    state.lastQuestion=questionKey;
-  }
-
-  $("hostCategories").classList.add("hidden");
-  $("waitingQuestion").classList.add("hidden");
-  $("questionPanel").classList.remove("hidden");
-
-  $("questionCategory").textContent=q.cat;
-
-  $("questionType").textContent=
-    q.type==="feud"
-      ?"SURVEY SAYS"
-      :"TRIVIA";
-
-  $("questionText").textContent=q.q;
-
-  const {data:ans}=await sb
-    .from("answers")
-    .select("*")
-    .eq("game_id",g.id)
-    .eq("round",g.round);
-
+  const g=state.game,q=g.final_round?wildFacts[g.question_index]:bank[g.question_index];if(!q)return;
+  hide("hostCategories");hide("waitingQuestion");hide("wagerPanel");show("questionPanel");
+  const key=(g.final_round?"F-":"R-")+g.round+"-"+g.question_index;if(state.lastQuestion!==key){if(el("answerInput"))el("answerInput").value="";if(el("answerMsg"))el("answerMsg").textContent="";state.lastQuestion=key;}
+  el("questionCategory").textContent=q.cat;el("questionType").textContent=g.final_round?"WILD FACT":q.type==="feud"?"SURVEY SAYS":"TRIVIA";el("questionText").textContent=q.q;
+  const {data:ans}=await sb.from("answers").select("*").eq("game_id",g.id).eq("round",g.round);
   if(g.status==="answering"){
-
-    $("revealPanel").classList.add("hidden");
-    $("hostControls").classList.add("hidden");
-    $("countdownWrap").classList.remove("hidden");
-
-    if(state.role==="host" && !state.player.host_plays){
-
-      $("hostLive").classList.remove("hidden");
-      $("answerEntry").classList.add("hidden");
-
-      $("submittedCount").textContent=
-        (ans||[]).length+
-        " of "+
-       ps.filter(p=>!p.is_host || p.host_plays).length;
-
-    }else{
-
-     $("hostLive").classList.toggle("hidden", state.role!=="host");
-
-      const mine=(ans||[])
-        .find(a=>a.player_id===state.player.id);
-
-      $("answerEntry").classList.remove("hidden");
-
-      $("answerInput").disabled=!!mine;
-      $("lockAnswer").disabled=!!mine;
-
-      $("answerMsg").textContent=
-        mine
-          ?"🔒 Answer locked. Waiting for time…"
-          :"";
-    }
-
+    hide("revealPanel");hide("hostControls");show("countdownWrap");
+    const hostOnly=state.role==="host"&&!state.player.host_plays;
+    if(hostOnly){show("hostLive");hide("answerEntry");}else{el("hostLive")?.classList.toggle("hidden",state.role!=="host");const mine=(ans||[]).find(a=>a.player_id===state.player.id);show("answerEntry");el("answerInput").disabled=!!mine;el("lockAnswer").disabled=!!mine;el("answerMsg").textContent=mine?"🔒 Answer locked. Waiting for time…":"";}
+    if(state.role==="host"&&el("submittedCount"))el("submittedCount").textContent=(ans||[]).length+" of "+playingPlayers(ps).length;
     runTimer(g.deadline);
-
   }else{
-
-    clearInterval(state.timer);
-
-    $("countdownWrap").classList.add("hidden");
-    $("answerEntry").classList.add("hidden");
-    $("hostLive").classList.add("hidden");
-
-    await renderReveal(
-      ps,
-      ans||[],
-      q
-    );
+    clearInterval(state.timer);hide("countdownWrap");hide("answerEntry");hide("hostLive");await renderReveal(ps,ans||[],q);
   }
 }
-
-/* =========================
-   TIMER
-========================= */
-
 function runTimer(deadline){
-  clearInterval(state.timer);
-
-  const tick=async()=>{
-    const left=Math.max(
-      0,
-      Math.ceil(
-        (new Date(deadline)-Date.now())/1000
-      )
-    );
-
-    $("timer").textContent=left;
-
-    if(left<=0){
-      clearInterval(state.timer);
-
-      if(state.role==="host"){
-        await scoreAndReveal();
-      }
-    }
-  };
-
-  tick();
-
-  state.timer=setInterval(
-    tick,
-    250
-  );
+  clearInterval(state.timer);const tick=async()=>{const left=Math.max(0,Math.ceil((new Date(deadline)-Date.now())/1000));if(el("timer"))el("timer").textContent=left;if(left<=0){clearInterval(state.timer);if(state.role==="host")await scoreAndReveal();}};tick();state.timer=setInterval(tick,250);
 }
-
-/* =========================
-   SUBMIT ANSWER
-========================= */
-
 async function submitAnswer(){
- if(state.role==="host" && !state.player.host_plays) return;
-
-  const txt=$("answerInput").value.trim();
-
-  if(!txt) return;
-
-  $("lockAnswer").disabled=true;
-
-  const {error}=await sb
-    .from("answers")
-    .insert({
-      game_id:state.game.id,
-      round:state.game.round,
-      player_id:state.player.id,
-      answer_text:txt
-    });
-
-  if(error){
-    $("answerMsg").textContent=error.message;
-    $("lockAnswer").disabled=false;
-    return;
-  }
-
-  $("answerInput").disabled=true;
-
-  $("answerMsg").textContent=
-    "🔒 Answer locked. Nobody can see it yet.";
+  if(state.role==="host"&&!state.player.host_plays)return;if(state.game.status!=="answering")return;const txt=el("answerInput")?.value.trim();if(!txt)return;el("lockAnswer").disabled=true;
+  const {error}=await sb.from("answers").insert({game_id:state.game.id,round:state.game.round,player_id:state.player.id,answer_text:txt});if(error){el("answerMsg").textContent=error.message;el("lockAnswer").disabled=false;return;}el("answerInput").disabled=true;el("answerMsg").textContent="🔒 Answer locked. Nobody can see it yet.";
 }
-
-/* =========================
-   ANSWER MATCHING
-========================= */
-
-function editDistance(a,b){
-  const m=a.length, n=b.length;
-  const dp=Array.from({length:m+1},()=>Array(n+1).fill(0));
-
-  for(let i=0;i<=m;i++) dp[i][0]=i;
-  for(let j=0;j<=n;j++) dp[0][j]=j;
-
-  for(let i=1;i<=m;i++){
-    for(let j=1;j<=n;j++){
-      dp[i][j]=a[i-1]===b[j-1]
-        ? dp[i-1][j-1]
-        : 1+Math.min(
-            dp[i-1][j],
-            dp[i][j-1],
-            dp[i-1][j-1]
-          );
-    }
-  }
-
-  return dp[m][n];
-}
-
-function wordVariants(s){
-  s=norm(s);
-  const set=new Set([s]);
-
-  if(s.endsWith("s") && s.length>3)
-    set.add(s.slice(0,-1));
-
-  if(s.endsWith("es") && s.length>4)
-    set.add(s.slice(0,-2));
-
-  if(s.endsWith("ing") && s.length>5){
-    const base=s.slice(0,-3);
-    set.add(base);
-    set.add(base+"e");
-  }
-
-  if(s.endsWith("ed") && s.length>4){
-    const base=s.slice(0,-2);
-    set.add(base);
-    set.add(base+"e");
-  }
-
-  return [...set];
-}
-
-function closeEnough(a,b){
-  a=norm(a);
-  b=norm(b);
-
-  if(!a || !b) return false;
-
-  if(a===b) return true;
-
-  if(a.length>=4 && b.length>=4){
-    if(a.includes(b) || b.includes(a)) return true;
-  }
-
-  const av=wordVariants(a);
-  const bv=wordVariants(b);
-
-  if(av.some(x=>bv.includes(x))) return true;
-
-  const longest=Math.max(a.length,b.length);
-
-  let allowed=0;
-
-  if(longest>=5) allowed=1;
-  if(longest>=8) allowed=2;
-
-  return editDistance(a,b)<=allowed;
-}
-
-function matchAnswer(text,q){
-  const n=norm(text);
-
-  if(q.type==="trivia"){
-    return q.correct.some(
-      x=>closeEnough(n,x)
-    ) ? 25 : 0;
-  }
-
-  let best=0;
-
-  for(const row of q.answers){
-    for(const alias of row[2]){
-      if(closeEnough(n,alias)){
-        best=Math.max(best,row[1]);
-      }
-    }
-  }
-
-  return best;
-}
-
-/* =========================
-   SCORE ROUND
-========================= */
-
+function editDistance(a,b){const m=a.length,n=b.length,dp=Array.from({length:m+1},()=>Array(n+1).fill(0));for(let i=0;i<=m;i++)dp[i][0]=i;for(let j=0;j<=n;j++)dp[0][j]=j;for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)dp[i][j]=a[i-1]===b[j-1]?dp[i-1][j-1]:1+Math.min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1]);return dp[m][n];}
+function wordVariants(s){s=norm(s);const set=new Set([s]);if(s.endsWith("s")&&s.length>3)set.add(s.slice(0,-1));if(s.endsWith("es")&&s.length>4)set.add(s.slice(0,-2));if(s.endsWith("ing")&&s.length>5){const b=s.slice(0,-3);set.add(b);set.add(b+"e");}if(s.endsWith("ed")&&s.length>4){const b=s.slice(0,-2);set.add(b);set.add(b+"e");}return [...set];}
+function closeEnough(a,b){a=norm(a);b=norm(b);if(!a||!b)return false;if(a===b)return true;if(a.length>=4&&b.length>=4&&(a.includes(b)||b.includes(a)))return true;const av=wordVariants(a),bv=wordVariants(b);if(av.some(x=>bv.includes(x)))return true;const longest=Math.max(a.length,b.length),allowed=longest>=8?2:longest>=5?1:0;return editDistance(a,b)<=allowed;}
+function matchAnswer(text,q){const n=norm(text);if(q.type==="trivia"||q.correct)return q.correct.some(x=>closeEnough(n,x))?25:0;let best=0;for(const row of q.answers)for(const alias of row[2])if(closeEnough(n,alias))best=Math.max(best,row[1]);return best;}
 async function scoreAndReveal(){
-  if(
-    state.role!=="host" ||
-    state.scoring ||
-    state.game.status!=="answering"
-  ){
-    return;
-  }
-
-  state.scoring=true;
-
+  if(state.role!=="host"||state.scoring||state.game.status!=="answering")return;state.scoring=true;
   try{
-
-    const g=state.game;
-    const q=bank[g.question_index];
-
-    const {data:ans}=await sb
-      .from("answers")
-      .select("*")
-      .eq("game_id",g.id)
-      .eq("round",g.round);
-
-    for(const a of (ans||[])){
-
-      if(a.scored) continue;
-
-      const base=
-        matchAnswer(
-          a.answer_text,
-          q
-        );
-
-      const pts=
-        base*mult(g.round);
-
-      await sb
-        .from("answers")
-        .update({
-          matched_points:pts,
-          scored:true
-        })
-        .eq("id",a.id);
+    const g=state.game,q=g.final_round?wildFacts[g.question_index]:bank[g.question_index];
+    const {data:ans}=await sb.from("answers").select("*").eq("game_id",g.id).eq("round",g.round);
+    for(const a of (ans||[])){if(a.scored)continue;const base=matchAnswer(a.answer_text,q);let pts;if(g.final_round){const {data:p}=await sb.from("players").select("wager").eq("id",a.player_id).single();const wager=Number(p?.wager)||0;pts=base>0?wager:-wager;}else pts=base*mult(g.round);await sb.from("answers").update({matched_points:pts,scored:true}).eq("id",a.id);}
+    if(g.final_round){
+      const {data:fps}=await sb.from("players").select("*").eq("game_id",g.id);const answered=new Set((ans||[]).map(a=>a.player_id));
+      for(const p of playingPlayers(fps||[])){if(answered.has(p.id))continue;await sb.from("answers").insert({game_id:g.id,round:g.round,player_id:p.id,answer_text:"(no answer)",matched_points:-(Number(p.wager)||0),scored:true});}
     }
-
-    /*
-      Recalculate every player's score
-      from all scored answers.
-      This prevents scores from drifting
-      out of sync.
-    */
-
-    const {data:allAnswers}=await sb
-      .from("answers")
-      .select("player_id,matched_points,scored")
-      .eq("game_id",g.id)
-      .eq("scored",true);
-
-    const totals={};
-
-    for(const a of (allAnswers||[])){
-      totals[a.player_id]=
-        (totals[a.player_id]||0)+
-        Number(a.matched_points||0);
-    }
-
-    const {data:players}=await sb
-      .from("players")
-      .select("*")
-      .eq("game_id",g.id);
-
-    for(const p of (players||[])){
-
-      if(p.is_host && !p.host_plays) continue;
-
-      await sb
-        .from("players")
-        .update({
-          score:totals[p.id]||0
-        })
-        .eq("id",p.id);
-    }
-
-    await sb
-      .from("games")
-      .update({
-        status:"revealed"
-      })
-      .eq("id",g.id)
-      .eq("status","answering");
-
-    await refresh();
-
-  }finally{
-    state.scoring=false;
-  }
+    const {data:all}=await sb.from("answers").select("player_id,matched_points,scored").eq("game_id",g.id).eq("scored",true);const totals={};for(const a of (all||[]))totals[a.player_id]=(totals[a.player_id]||0)+Number(a.matched_points||0);
+    const {data:players}=await sb.from("players").select("*").eq("game_id",g.id);for(const p of (players||[])){if(p.is_host&&!p.host_plays)continue;await sb.from("players").update({score:Math.max(0,totals[p.id]||0)}).eq("id",p.id);}
+    await sb.from("games").update({status:"revealed"}).eq("id",g.id).eq("status","answering");await refresh();
+  }finally{state.scoring=false;}
 }
-
-/* =========================
-   REVEAL ANSWERS
-========================= */
-
 async function renderReveal(ps,ans,q){
-
-  $("revealPanel").classList.remove("hidden");
-
-  const names=
-    Object.fromEntries(
-      ps.map(p=>[p.id,p.name])
-    );
-
-  $("revealedAnswers").innerHTML=
-    ans.length
-      ? ans.map(a=>
-          '<div class="reveal-row '+
-          (a.matched_points>0
-            ?"correct"
-            :"wrong")+
-          '">'+
-          '<span><strong>'+
-          esc(names[a.player_id]||"Player")+
-          '</strong> — '+
-          esc(a.answer_text)+
-          '</span>'+
-          '<strong>'+
-          (a.matched_points>0
-            ?"+"+a.matched_points
-            :"0")+
-          '</strong>'+
-          '</div>'
-        ).join("")
-      :'<p class="muted">No answers were submitted.</p>';
-
-  if(q.type==="feud"){
-
-    $("feudBoard").innerHTML=
-      '<div class="board">'+
-      '<h3>Survey Board</h3>'+
-      q.answers.map((x,i)=>
-        '<div class="board-row">'+
-        '<span>'+
-        (i+1)+'. '+
-        esc(x[0])+
-        '</span>'+
-        '<strong>'+
-        x[1]+
-        '</strong>'+
-        '</div>'
-      ).join("")+
-      '</div>';
-
-  }else{
-
-    $("feudBoard").innerHTML=
-      '<div class="board">'+
-      '<h3>Correct Answer</h3>'+
-      '<div class="board-row">'+
-      '<span>'+
-      esc(q.correct[0])+
-      '</span>'+
-      '<strong>25 base points</strong>'+
-      '</div>'+
-      '</div>';
-  }
-
-  $("hostControls").classList.toggle(
-    "hidden",
-    state.role!=="host"
-  );
+  show("revealPanel");hide("wagerPanel");const names=Object.fromEntries(ps.map(p=>[p.id,p.name]));
+  if(el("revealedAnswers"))el("revealedAnswers").innerHTML=ans.length?ans.map(a=>'<div class="reveal-row '+(a.matched_points>0?"correct":"wrong")+'"><span><strong>'+esc(names[a.player_id]||"Player")+'</strong> — '+esc(a.answer_text)+'</span><strong>'+(a.matched_points>0?"+"+a.matched_points:a.matched_points<0?String(a.matched_points):"0")+'</strong></div>').join(""):'<p class="muted">No answers were submitted.</p>';
+  if(q.type==="feud")el("feudBoard").innerHTML='<div class="board"><h3>Survey Board</h3>'+q.answers.map((x,i)=>'<div class="board-row"><span>'+(i+1)+'. '+esc(x[0])+'</span><strong>'+x[1]+'</strong></div>').join("")+'</div>';
+  else el("feudBoard").innerHTML='<div class="board"><h3>Correct Answer</h3><div class="board-row"><span>'+esc(q.correct[0])+'</span><strong>'+(state.game.final_round?"Wager result":"25 base points")+'</strong></div></div>';
+  el("hostControls")?.classList.toggle("hidden",state.role!=="host");if(state.role==="host"){el("nextRound")?.classList.toggle("hidden",!!state.game.final_round);el("finalRound")?.classList.toggle("hidden",!!state.game.final_round);}
 }
-
-/* =========================
-   NEXT ROUND
-========================= */
-
 async function nextRound(){
-  if(state.role!=="host") return;
-
-  state.lastQuestion=null;
-
-  const {error}=await sb
-    .from("games")
-    .update({
-      round:state.game.round+1,
-      status:"choosing",
-      question_index:null,
-      deadline:null
-    })
-    .eq("id",state.game.id);
-
-  if(error){
-    alert(
-      "Could not start next round: "+
-      error.message
-    );
-    return;
-  }
-
-  await refresh();
+  if(state.role!=="host"||state.game.final_round)return;state.lastQuestion=null;const {error}=await sb.from("games").update({round:state.game.round+1,status:"choosing",question_index:null,deadline:null,final_round:false}).eq("id",state.game.id);if(error)alert("Could not start next round: "+error.message);else await refresh();
 }
-
 async function startFinalRound(){
-    if(state.role!=="host") return;
-
-    const ok=confirm(
-        "Start the Wild Facts Final Round? Everyone will choose a wager before seeing the question."
-    );
-
-    if(!ok) return;
-
-    clearInterval(state.timer);
-
-    const {error}=await sb
-        .from("games")
-        .update({
-            status:"wagering",
-            question_index:null,
-            deadline:null
-        })
-        .eq("id",state.game.id);
-
-    if(error){
-        alert(
-            "Could not start Final Round: "+
-            error.message
-        );
-        return;
-    }
-
-    await refresh();
+  if(state.role!=="host")return;if(!confirm("Start the Wild Facts Final Round? Everyone will choose a wager before seeing the question."))return;clearInterval(state.timer);
+  await sb.from("players").update({wager:0,wager_locked:false}).eq("game_id",state.game.id);
+  state.lastQuestion=null;const {error}=await sb.from("games").update({round:state.game.round+1,status:"wagering",question_index:null,deadline:null,final_round:true}).eq("id",state.game.id);if(error)alert("Could not start Final Round: "+error.message);else await refresh();
 }
-  
-  
-  
-  
-  
-  /* =========================
-   NEW GAME
-========================= */
-
 async function newGame(){
-  if(state.role!=="host") return;
-
-  const ok=confirm(
-    "Start a new game with the same players? Scores will reset to 0."
-  );
-
-  if(!ok) return;
-
-  clearInterval(state.timer);
-
-  await sb
-    .from("answers")
-    .delete()
-    .eq("game_id",state.game.id);
-
-  const {data:players}=await sb
-    .from("players")
-    .select("*")
-    .eq("game_id",state.game.id);
-
-  for(const p of (players||[])){
-    await sb
-      .from("players")
-      .update({score:0})
-      .eq("id",p.id);
-  }
-
-  clearUsed();
-  state.lastQuestion=null;
-
-  const {error}=await sb
-    .from("games")
-    .update({
-      round:1,
-      status:"lobby",
-      question_index:null,
-      deadline:null
-    })
-    .eq("id",state.game.id);
-
-  if(error){
-    alert(
-      "Could not reset game: "+
-      error.message
-    );
-    return;
-  }
-
-  await refresh();
+  if(state.role!=="host")return;if(!confirm("Start a new game with the same players? Scores will reset to 0."))return;clearInterval(state.timer);await sb.from("answers").delete().eq("game_id",state.game.id);await sb.from("players").update({score:0,wager:0,wager_locked:false}).eq("game_id",state.game.id);clearUsed();state.lastQuestion=null;state.launchingFinal=false;state.launchingCategory=false;
+  const {error}=await sb.from("games").update({round:1,status:"lobby",question_index:null,deadline:null,final_round:false}).eq("id",state.game.id);if(error)alert("Could not reset game: "+error.message);else await refresh();
 }
+async function endGame(){if(state.role!=="host")return;if(!confirm("End this game and send everyone back to the home screen?"))return;clearInterval(state.timer);const {error}=await sb.from("games").update({status:"finished"}).eq("id",state.game.id);if(error)alert("Could not end game: "+error.message);else goHome();}
+async function goHome(){clearInterval(state.timer);if(state.channel){try{await sb.removeChannel(state.channel);}catch{}}state={role:null,game:null,player:null,channel:null,timer:null,scoring:false,used:new Set(),lastQuestion:null,launchingFinal:false,launchingCategory:false};hide("lobby");hide("play");show("home");if(el("homeMsg"))el("homeMsg").textContent="";if(el("joinCode"))el("joinCode").value="";}
 
-/* =========================
-   END GAME
-========================= */
-
-async function endGame(){
-  if(state.role!=="host") return;
-
-  const ok=confirm(
-    "End this game and send everyone back to the home screen?"
-  );
-
-  if(!ok) return;
-
-  clearInterval(state.timer);
-
-  const {error}=await sb
-    .from("games")
-    .update({
-      status:"finished"
-    })
-    .eq("id",state.game.id);
-
-  if(error){
-    alert(
-      "Could not end game: "+
-      error.message
-    );
-    return;
-  }
-
-  goHome();
-}
-
-/* =========================
-   RETURN HOME
-========================= */
-
-async function goHome(){
-
-  clearInterval(state.timer);
-
-  if(state.channel){
-    try{
-      await sb.removeChannel(
-        state.channel
-      );
-    }catch{}
-  }
-
-  state={
-    role:null,
-    game:null,
-    player:null,
-    channel:null,
-    timer:null,
-    scoring:false,
-    used:new Set(),
-    lastQuestion:null
-  };
-
-  $("lobby").classList.add("hidden");
-  $("play").classList.add("hidden");
-  $("home").classList.remove("hidden");
-
-  $("homeMsg").textContent="";
-  $("joinCode").value="";
-}
-
-/* =========================
-   BUTTONS
-========================= */
-
-$("createGame").onclick=createGame;
-
-$("joinGame").onclick=joinGame;
-
-$("startGame").onclick=async()=>{
-
-  if(state.role!=="host") return;
-
-  loadUsed();
-
-  const {error}=await sb
-    .from("games")
-    .update({
-      status:"choosing"
-    })
-    .eq("id",state.game.id);
-
-  if(error){
-    alert(
-      "Could not start game: "+
-      error.message
-    );
-    return;
-  }
-
-  await refresh();
-};
-
-$("lockAnswer").onclick=submitAnswer;
-
-$("answerInput").addEventListener(
-  "keydown",
-  e=>{
-    if(e.key==="Enter"){
-      submitAnswer();
-    }
-  }
-);
-$("showAnswersNow").onclick=scoreAndReveal;
-$("nextRound").onclick=nextRound;
-$("newGame").onclick=newGame;
-$("endGame").onclick=endGame;
-$("finalRound").onclick=startFinalRound;
- $("lockWager").onclick=lockWager; 
+el("createGame").onclick=createGame;
+el("joinGame").onclick=joinGame;
+el("startGame").onclick=async()=>{if(state.role!=="host")return;loadUsed();const {error}=await sb.from("games").update({status:"choosing",round:1,question_index:null,deadline:null,final_round:false}).eq("id",state.game.id);if(error)alert("Could not start game: "+error.message);else await refresh();};
+el("lockAnswer").onclick=submitAnswer;
+el("answerInput").addEventListener("keydown",e=>{if(e.key==="Enter")submitAnswer();});
+if(el("showAnswersNow"))el("showAnswersNow").onclick=scoreAndReveal;
+if(el("nextRound"))el("nextRound").onclick=nextRound;
+if(el("newGame"))el("newGame").onclick=newGame;
+if(el("endGame"))el("endGame").onclick=endGame;
+if(el("finalRound"))el("finalRound").onclick=startFinalRound;
+if(el("lockWager"))el("lockWager").onclick=lockWager;
 })();
